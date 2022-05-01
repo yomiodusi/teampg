@@ -1,5 +1,38 @@
 const inquirer = require("inquirer");
 const Employee = require("./lib/employee");
+const Manager = require("./lib/manager");
+const Engineer = require("./lib/engineer");
+const Intern = require("./lib/intern");
+
+
+const employees = [];
+
+// Functions for each User Input
+
+function inputManager() {
+    inquirer.prompt([
+    {
+        type: "input",
+        message: "What is your team manager's name?",
+        name: "managerName"
+    }, {
+        type: "input",
+        message: "What is your team manager's employee id?",
+        name: "managerTag"
+    }, {
+        type: "input",
+        message: "What is their email address?",
+        name: "managerEmail"
+    }, {
+        type: "input",
+        message: "What is their office number?",
+        name: "managerNumber"
+    },     
+]}
+.then(function(data) {
+    const manager = new Manager(data.managerName, data.managerTag, data.managerEmail, data.managerNumber);
+    employees.push(manager);
+})
 
 
 // TODO: Create an array of questions to input team members.

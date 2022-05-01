@@ -1,5 +1,7 @@
-const checkIfEqual = require('../lib/employee.js');
+const Intern = require("../lib/intern");
 
-test('checks if 10 is equal to 10', () => {
-  expect(checkIfEqual(10, 10)).toBe(true);
-});
+test('the school name is correct', () => {
+    var intern = new Intern("null","null","null", "western");
+    expect(intern.collectSchool()).toBe("western");
+  });
+  
