@@ -1,6 +1,7 @@
 const inquirer = require("inquirer");
-const Engineer = require("../lib/engineer");
-const Intern = require("../lib/intern");
+const Engineer = require("./lib/engineer");
+const Intern = require("./lib/intern");
+const Manager = require("./lib/manager");
 
 
 const employees = [];
@@ -32,6 +33,7 @@ function inputManager() {
     employees.push(manager);
     joinTeam();
 });
+}
 
 function inputEngineer() {
     inquirer.prompt([
@@ -58,6 +60,7 @@ function inputEngineer() {
     employees.push(engineer);
     joinTeam();
 });
+}
 
 function inputIntern() {
     inquirer.prompt([
@@ -84,30 +87,50 @@ function inputIntern() {
     employees.push(intern);
     joinTeam();
 });
+}
 
-
-
-
-// TODO: Create a function to write README file
-function writeToFile(fileName, data) {
-
-    fs.writeFile(fileName, data, function(err) {
-        if (err) {
-            return console.log(err)
-        } else {
-            console.log("File Created!")
+function joinTeam() {
+    inquirer.prompt([
+        {
+            type: "list",
+            name: "addingMember",
+            message: "Welcome! Which Team Member would you like to add?",
+            choices: [ "Manager", "Engineer", "Intern", "TeamComplete" ]
+        },     
+    ])
+    .then(function(data) {
+        console.log(employees)
+        if (data.addingMember === "Manager") {
+            inputManager()
+        } else if (data.addingMember === "Engineer") {
+            inputEngineer()
+        } else if (data.addingMember === "Intern") {
+            inputIntern()          
         }
-    })
-
+    });
 }
+joinTeam()
 
-// TODO: Create a function to initialize app
-function init() {
-    inquirer.prompt(questions)
-        .then(function(data) {
-            writeToFile("README.md", generatorMarkdown(data));
-        })
-}
+// // TODO: Create a function to write README file
+// function writeToFile(fileName, data) {
 
-// Function call to initialize app
-init();
+//     fs.writeFile(fileName, data, function(err) {
+//         if (err) {
+//             return console.log(err)
+//         } else {
+//             console.log("File Created!")
+//         }
+//     })
+
+// }
+
+// // TODO: Create a function to initialize app
+// function init() {
+//     inquirer.prompt(questions)
+//         .then(function(data) {
+//             writeToFile("README.md", generatorMarkdown(data));
+//         })
+// }
+
+// // Function call to initialize app
+// init();
