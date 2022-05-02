@@ -1,4 +1,4 @@
-const Employee = require('../lib/employee.js');
+const Employee = require("../lib/employee.js");
 
 // test('the email is correct', () => {
 //   var employee = new Employee("employee@gmail.com", "tag", "id");

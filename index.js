@@ -1,5 +1,4 @@
 const inquirer = require("inquirer");
-const Employee = require('../lib/employee.js');
 const Engineer = require("../lib/engineer");
 const Intern = require("../lib/intern");
 
@@ -27,48 +26,66 @@ function inputManager() {
         message: "What is their office number?",
         name: "managerNumber"
     },     
-]}
+])
 .then(function(data) {
     const manager = new Manager(data.managerName, data.managerTag, data.managerEmail, data.managerNumber);
     employees.push(manager);
-})
+    joinTeam();
+});
+
+function inputEngineer() {
+    inquirer.prompt([
+    {
+        type: "input",
+        message: "What is your team engineer's name?",
+        name: "engineerName"
+    }, {
+        type: "input",
+        message: "What is your team engineer's employee id?",
+        name: "engineerTag"
+    }, {
+        type: "input",
+        message: "What is their team engineer's email address?",
+        name: "engineerEmail"
+    }, {
+        type: "input",
+        message: "What is your team engineer's github username?",
+        name: "engineerGithub"
+    },     
+])
+.then(function(data) {
+    const engineer = new Engineer(data.engineerName, data.engineerTag, data.engineerEmail, data.engineerGithub);
+    employees.push(engineer);
+    joinTeam();
+});
+
+function inputIntern() {
+    inquirer.prompt([
+    {
+        type: "input",
+        message: "What is your team intern's name?",
+        name: "internName"
+    }, {
+        type: "input",
+        message: "What is your team intern's employee id?",
+        name: "internTag"
+    }, {
+        type: "input",
+        message: "What is their team intern's email address?",
+        name: "internEmail"
+    }, {
+        type: "input",
+        message: "What is your team intern's school?",
+        name: "internSchool"
+    },     
+])
+.then(function(data) {
+    const intern = new Intern(data.internName, data.internTag, data.internEmail, data.internSchool);
+    employees.push(intern);
+    joinTeam();
+});
 
 
-// TODO: Create an array of questions to input team members.
-const questions = [{
-    type: "input",
-    message: "What is your team manager's name?",
-    name: "Name"
-}, {
-    type: "input",
-    message: "What is your team manager's employee id?",
-    name: "Tag"
-}, {
-    type: "input",
-    message: "What is their email address?",
-    name: "Email"
-}, {
-    type: "input",
-    message: "What is their office number?",
-    name: "Number"
-}, {
-    type: "list",
-    message: "Great Job! Time to add an Engineer, Intern or Finish Building Team  ",
-    choices: ["Engineer", "Intern", "Finish Team"]
-}, {
-    type: "input",
-    message: "What is their office number?",
-    name: "Number"
-}, {
-    type: "input",
-    message: "What is their office number?",
-    name: "Number"
-}, {
-    type: "input",
-    message: "What is their office number?",
-    name: "Number"
-},
-]
 
 
 // TODO: Create a function to write README file
