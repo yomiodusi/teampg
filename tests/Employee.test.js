@@ -21,7 +21,7 @@ test('the name is correct', () => {
 });
 
 
-// test("user input creates employee", () => {
+// test("user input creates employee", () => { -- pls ignore
 //   var inputarray = ["employem@gmail.com",
 //   "tag",
 //   "name"]
