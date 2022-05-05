@@ -2,9 +2,14 @@ const inquirer = require("inquirer");
 const Engineer = require("./lib/engineer");
 const Intern = require("./lib/intern");
 const Manager = require("./lib/manager");
+const fs = require('fs');
+const render = require("./src/render")
+
 
 
 const employees = [];
+// send to browser
+
 
 // Functions for each User Input
 
@@ -105,32 +110,25 @@ function joinTeam() {
         } else if (data.addingMember === "Engineer") {
             inputEngineer()
         } else if (data.addingMember === "Intern") {
-            inputIntern()          
+            inputIntern()    
+        } else if (data.addingMember === "Team Complete") {
+            teamComplete()       
         }
     });
 }
 joinTeam()
 
-// // TODO: Create a function to write README file
-// function writeToFile(fileName, data) {
+// // TODO: Create a function to write completed array 
+function teamComplete() {
+    fs.writeFile("./dist/teampg.html",render(employees), "utf-8", function(err) {
+        if (err) {
+            return console.log(err)
+        } else {
+            console.log("Your Team has been made!")
+        }
+    })
 
-//     fs.writeFile(fileName, data, function(err) {
-//         if (err) {
-//             return console.log(err)
-//         } else {
-//             console.log("File Created!")
-//         }
-//     })
+}
 
-// }
 
-// // TODO: Create a function to initialize app
-// function init() {
-//     inquirer.prompt(questions)
-//         .then(function(data) {
-//             writeToFile("README.md", generatorMarkdown(data));
-//         })
-// }
-
-// // Function call to initialize app
-// init();
+init();
