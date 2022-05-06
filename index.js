@@ -3,7 +3,7 @@ const Engineer = require("./lib/engineer");
 const Intern = require("./lib/intern");
 const Manager = require("./lib/manager");
 const fs = require('fs');
-const render = require("./src/render")
+
 
 
 
@@ -111,7 +111,7 @@ function joinTeam() {
             inputEngineer()
         } else if (data.addingMember === "Intern") {
             inputIntern()    
-        } else if (data.addingMember === "Team Complete") {
+        } else if (data.addingMember === "TeamComplete") {
             teamComplete()       
         }
     });
@@ -120,15 +120,11 @@ joinTeam()
 
 // // TODO: Create a function to write completed array 
 function teamComplete() {
-    fs.writeFile("./dist/teampg.html",render(employees), "utf-8", function(err) {
-        if (err) {
-            return console.log(err)
-        } else {
-            console.log("Your Team has been made!")
-        }
-    })
-
+    console.log("hELLO TEAM COMPLETE")
+    fs.writeFileSync("src/data.js","window.data = " + JSON.stringify(employees))
 }
 
-
-init();
+// function teamComplete() {
+//     console.log("hELLO TEAM COMPLETE")
+//     fs.writeFileSync("dist/teampg.html",render(employees))
+// }
