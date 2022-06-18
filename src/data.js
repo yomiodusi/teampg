@@ -1,1 +1,1 @@
-window.data = [{"name":"Yomi","tag":"223","email":"yomiodusi98@gmail.com","number":"3333"},{"name":"Z","tag":"444","email":"yodusi@gmail.com","github":"yomiodusi"},{"name":"Abbas","tag":"555","email":"yodusi@gmail.com","school":"mtl bitches"}]
+window.data = [{"name":"Bob Myers","tag":"001","email":"bm@yahoo.com","number":"2265462520"},{"name":"David Soho","tag":"002","email":"ds@yahoo.com","github":"yomiodusi"},{"name":"Nicole Agaiby","tag":"003","email":"nagby@yahoo.com","school":"McMaster University "}]
