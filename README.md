@@ -37,9 +37,12 @@
   ## Your Email Address
   yomiodusi98@gmail.com
 
-  
+
   ## Link to Video that Demonstrates Functionality
   https://www.youtube.com/watch?v=fuSpFleeS0k
+
+   ## Sample HTML
+   ![screenshot](/images/SampleHTML.png)
 
   ## Status of Project
   100% Complete
